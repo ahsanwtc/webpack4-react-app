@@ -10,3 +10,5 @@ Webpack4 setup for reactjs web app
  - `@babel/preset-stage-2` adds stage-2 feature of the **Ecma TC39** proposal
  - `@babel/loader` a dependency of `webpack` allows transpiling of `babel`
  - `@babel/core` a dependency of `@babel/loader`
+ - `@babel/core` a dependency of `@babel/loader`
+ - `html-webpack-plugin` plugin for creation of HTML
