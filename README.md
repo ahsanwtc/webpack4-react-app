@@ -1,4 +1,4 @@
-# webpack4-react-app
+# Webpack 4 with ReactJS App Setup
 Webpack4 setup for reactjs web app
 
 ### devDependencies
@@ -16,3 +16,19 @@ Webpack4 setup for reactjs web app
  - `css-loader` interprets `@impot` and `url()` like `import/require()` and resolves them
  - `style-loader` adds CSS to DOM by injecting style tag
  - `extract-text-webpack-plugin` moves all css into a seperate CSS file
+ - `uglifyjs-webpack-plugin` uglifies and minimizes all CSS to reduce the bundle size
+ - `optimize-css-assets-webpack-plugin` minimizes and optimizes CSS code
+ - `webpack-merge` merges all webpack configs to generate a environment dependent config
+
+### Node scripts
+```js
+    "scripts": {
+        "start:dev": "webpack-dev-server --mode development --config config/webpack.base.config.js --open --hot --history-api-fallback",
+        "prestart:prod": "webpack --mode production --config config/webpack.prod.config.js --env.NODE_ENV=production --progress",
+        "start:prod": "node server"
+    }
+```
+
+ - `start:dev` starts `webpack` development server with development mode using `webpack.base.config.js` as config file, opens up the browser, enbables hot module reloadling and `--history-api-fallback` tells `webpack-dev-server` to fallback to `index.html` if requested resource can not be found
+ - `prestart:prod` starts `webpack` in prodction mode using `webpack.prod.config.js` as config file, setting `env.NODE_ENV` to `production` and shows the progress of the bundle
+ - `start:prod`: `node server` is equivlant to `node server/index.js`, runs `prestart` first
